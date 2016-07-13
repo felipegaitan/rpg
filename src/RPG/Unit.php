@@ -1,6 +1,8 @@
 <?php
     namespace RPG;
 
+    use RPG\Armor;
+
     abstract class Unit{
 
         protected $hp     = 40;
