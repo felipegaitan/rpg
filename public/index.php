@@ -1,9 +1,5 @@
 <?php
-    require( 'src/helpers.php' );
-    spl_autoload_register( function($className){
-        $file = str_replace( "\\","/",$className );
-        require "src/$file.php";
-    });
+    require "../vendor/autoload.php";
 
     use RPG\Unit\Soldier;
     use RPG\Unit\Archer;
