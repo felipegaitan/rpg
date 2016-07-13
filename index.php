@@ -52,6 +52,9 @@
          */
         public function takeDamage($damage){
             $this->hp = ( $this->hp-$this->absorbDamage( $damage ) );
+            if( $this->hp < 0 ){
+                $this->hp = 0;
+            }
             show( "{$this->name} tiene {$this->hp} de vida" );
             if($this->hp<=0){
                 $this->dies();
@@ -160,7 +163,25 @@
         protected $armorName = "Silver Armor";
 
         public function absorbDamage($damage){
+            return $damage/3;
+        }
+    }
+
+    class GoldArmor extends ArmorAbstract implements Armor{
+
+        protected $armorName = "Gold Armor";
+
+        public function absorbDamage($damage){
             return $damage/4;
+        }
+    }
+
+    class CursedArmor extends ArmorAbstract implements Armor{
+
+        protected $armorName = "Cursed Armor";
+
+        public function absorbDamage($damage){
+            return $damage * 2;
         }
     }
 
@@ -187,7 +208,7 @@
     $yassel->attack( $felipe );
     $felipe->setArmor( new BronzeArmor() );
     $yassel->attack( $felipe );
-    $felipe->setArmor( new SilverArmor() );
+    $felipe->setArmor( new CursedArmor() );
     $yassel->attack( $felipe );
     $yassel->setArmor( new EvadeArmor() );
     $felipe->attack( $yassel );
