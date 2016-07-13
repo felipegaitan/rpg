@@ -1,7 +1,7 @@
 <?php
-    namespace RPG\Armor;
+    namespace RPG\Armor\Properties;
 
-    abstract class ArmorClass{
+    abstract class ArmorProperties{
 
         protected $armorName   = "";
         protected $evadeAttack = false;
