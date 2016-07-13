@@ -20,7 +20,7 @@
       "src/helpers/helpers.php"
     ] ,
     "psr-4" : {
-      "RPG\\" : "/src/RPG"
+      "RPG\\" : "src/RPG"
     }
   }
 }
