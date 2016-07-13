@@ -1,5 +1,5 @@
 <?php
-    namespace RPG;
+    namespace RPG\Armor;
 
     abstract class ArmorClass{
 

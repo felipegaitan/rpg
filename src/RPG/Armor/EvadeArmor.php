@@ -1,5 +1,8 @@
 <?php
-    namespace RPG;
+    namespace RPG\Armor;
+
+    use RPG\Armor;
+    use RPG\Armor\ArmorClass;
     
     class EvadeArmor extends ArmorClass implements Armor{
 
