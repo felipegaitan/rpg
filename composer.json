@@ -1,6 +1,7 @@
 {
   "name" : "proimond/rpg" ,
   "description" : "RPG basado en las clases de styde" ,
+  "type" : "project" ,
   "minimum-stability" : "stable" ,
   "license" : "proprietary" ,
   "authors" : [
@@ -8,5 +9,18 @@
       "name" : "Felipe Gaitan" ,
       "email" : "felipe.gaitan.81@gmail.com"
     }
-  ]
+  ] ,
+  "require" : {
+    "php" : ">=5.5.9"
+  } ,
+  "autoload" : {
+    "classmap" : [
+    ] ,
+    "files" : [
+      "src/helpers/helpers.php"
+    ] ,
+    "psr-4" : {
+      "RPG\\" : "/src/RPG"
+    }
+  }
 }
