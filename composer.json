@@ -1,0 +1,12 @@
+{
+  "name" : "proimond/rpg" ,
+  "description" : "RPG basado en las clases de styde" ,
+  "minimum-stability" : "stable" ,
+  "license" : "proprietary" ,
+  "authors" : [
+    {
+      "name" : "Felipe Gaitan" ,
+      "email" : "felipe.gaitan.81@gmail.com"
+    }
+  ]
+}
