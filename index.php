@@ -1,10 +1,15 @@
 <?php
-
-    require ('src/helpers.php');
-
-    spl_autoload_register(function($className){
-        require "src/$className.php";
+    require( 'src/helpers.php' );
+    spl_autoload_register( function($className){
+        $file = str_replace( "\\","/",$className );
+        require "src/$file.php";
     });
+
+    use RPG\Unit\Soldier;
+    use RPG\Unit\Archer;
+    use RPG\Armor\BronzeArmor;
+    use RPG\Armor\CursedArmor;
+    use RPG\Armor\EvadeArmor;
 
     $felipe = new Soldier( 'Felipe' );
     $yassel = new Archer( 'Yassel' );
