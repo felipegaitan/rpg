@@ -1,6 +1,7 @@
 <?php
+    namespace RPG;
 
-    class BronzeArmor extends ArmorAbstract implements Armor{
+    class BronzeArmor extends ArmorClass implements Armor{
 
         protected $armorName = "Bronze Armor";
 

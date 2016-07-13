@@ -1,6 +1,7 @@
 <?php
+    namespace RPG;
 
-    abstract class ArmorAbstract{
+    abstract class ArmorClass{
 
         protected $armorName   = "";
         protected $evadeAttack = false;

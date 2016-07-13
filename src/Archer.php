@@ -1,4 +1,5 @@
 <?php
+    namespace RPG;
 
     class Archer extends Unit{
 

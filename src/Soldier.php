@@ -1,4 +1,5 @@
 <?php
+    namespace RPG;
 
     class Soldier extends Unit{
 

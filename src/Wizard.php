@@ -1,4 +1,5 @@
 <?php
+    namespace RPG;
 
     class Wizard extends Unit{
 

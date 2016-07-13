@@ -1,6 +1,7 @@
 <?php
-
-    class EvadeArmor extends ArmorAbstract implements Armor{
+    namespace RPG;
+    
+    class EvadeArmor extends ArmorClass implements Armor{
 
         protected $armorName = "Evade Armor";
 
