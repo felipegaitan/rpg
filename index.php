@@ -6,6 +6,7 @@
     abstract class Unit{
 
         protected $hp     = 40;
+        protected $armor  = null;
         protected $damage = 0;
         protected $name;
 
@@ -33,7 +34,7 @@
         }
 
         /**
-         * @return $name
+         * @return bool $name
          */
         public function getName(){
             return $this->name;
@@ -43,19 +44,15 @@
          * @param $damage
          */
         public function takeDamage($damage){
-            // $this->setHp( $this->hp-$damage );
-            $this->setHp( $this->hp-$damage );
+            $this->hp = ( $this->hp-$this->absorbDamage( $damage ) );
+            show( "{$this->name} tiene {$this->hp} de vida" );
             if($this->hp<=0){
                 $this->dies();
             }
         }
 
-        /**
-         * @param int $hp
-         */
-        private function setHp($points){
-            $this->hp = $points;
-            show( "{$this->name} tiene {$this->hp} de vida" );
+        protected function absorbDamage($damage){
+            return $damage;
         }
 
         /**
@@ -63,6 +60,7 @@
          */
         public function dies(){
             show( "{$this->name} muere" );
+            exit();
         }
 
         /**
@@ -83,43 +81,68 @@
             $opponent->takeDamage( $this->damage );
         }
 
-        public function takeDamage($damage){
-            if(rand( 0,1 )){
-                parent::takeDamage( $damage );
-            }else{
-                show( "{$this->name} evita el ataque" );
-            }
-        }
-
     }
 
     class Soldier extends Unit{
 
         protected $damage = 40;
+        protected $armor;
+
+        public function __construct($name,Armor $armor = null){
+            $this->setArmor( $armor );
+            parent::__construct( $name );
+        }
+
+        /**
+         * @param mixed $armor
+         */
+        public function setArmor(Armor $armor = null){
+            $this->armor = $armor;
+        }
 
         public function attack(Unit $opponent){
-            show( "{$this->name} corta en dos {$opponent->getName()}" );
+            show( "{$this->name} ataca con espada a {$opponent->getName()}" );
             $opponent->takeDamage( $this->damage );
         }
 
-        public function takeDamage($damage){
-            parent::takeDamage( $damage/2 );
+        protected function absorbDamage($damage){
+            if($this->armor){
+                $damage = $this->armor->absorbDamage( $damage );
+            }
+
+            return $damage;
         }
 
+    } 
+
+    interface Armor{
+        public function absorbDamage($damage);
     }
 
-    class Wizard extends Unit{
+    class BronceArmor implements Armor{
 
-        public function attack(Unit $opponent){
-            show( "{$this->name} manda un hechizo a {$opponent->getName()}" );
+        public function absorbDamage($damage){
+            return $damage/2;
         }
-
     }
 
-    $felipe = new Soldier( 'Felipe' );
-    $yassel = new Archer( 'Yassel' );
-    $felipe->move( "Adelante" );
+    class SilverArmor implements Armor{
+
+        public function absorbDamage($damage){
+            return $damage/4;
+        }
+    }
+
+    $bronceArmor = new BronceArmor();
+    $silverArmor = new SilverArmor();
+    $felipe      = new Soldier( 'Felipe' );
+    $yassel      = new Archer( 'Yassel' );
+    // $felipe->move( "Adelante" );
+    // $yassel->attack( $felipe );
     $yassel->attack( $felipe );
+    $felipe->setArmor( $bronceArmor );
+    $yassel->attack( $felipe );
+    $felipe->setArmor( $silverArmor );
     $yassel->attack( $felipe );
     $felipe->attack( $yassel );
 
