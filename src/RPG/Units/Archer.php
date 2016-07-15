@@ -1,9 +1,10 @@
 <?php
     namespace RPG\Units;
 
+    use RPG\Units\Properties\UnitProperties;
     use RPG\Unit;
 
-    class Archer extends Unit{
+    class Archer extends UnitProperties implements Unit{
 
         protected $damage = 20;
 

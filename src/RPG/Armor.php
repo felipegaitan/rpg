@@ -3,7 +3,6 @@
 
     interface Armor{
 
-        public function absorbDamage($damage);
-
-        public function getArmorName();
+        public function absorbDamage($damage); 
+        
     }
