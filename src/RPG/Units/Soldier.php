@@ -1,15 +1,15 @@
 <?php
-    namespace RPG\Unit;
+    namespace RPG\Units;
 
     use RPG\Unit;
 
-    class Wizard extends Unit{
+    class Soldier extends Unit{
 
-        protected $damage = 10;
+        protected $damage = 40;
         protected $armor;
 
         public function attack(Unit $opponent){
-            show( "{$this->name} lanza un hechizo a {$opponent->getName()}" );
+            show( "{$this->name} ataca con espada a {$opponent->getName()}" );
             $opponent->takeDamage( $this->damage );
         }
 

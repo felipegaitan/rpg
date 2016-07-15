@@ -1,5 +1,5 @@
 <?php
-    namespace RPG\Unit;
+    namespace RPG\Units;
 
     use RPG\Unit;
 

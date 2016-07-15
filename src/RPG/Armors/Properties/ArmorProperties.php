@@ -1,5 +1,5 @@
 <?php
-    namespace RPG\Armor\Properties;
+    namespace RPG\Armors\Properties;
 
     abstract class ArmorProperties{
 

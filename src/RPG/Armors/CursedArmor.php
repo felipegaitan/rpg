@@ -1,8 +1,8 @@
 <?php
-    namespace RPG\Armor;
+    namespace RPG\Armors;
 
     use RPG\Armor;
-    use RPG\Armor\Properties\ArmorProperties;
+    use RPG\Armors\Properties\ArmorProperties;
 
     class CursedArmor extends ArmorProperties implements Armor{
 
