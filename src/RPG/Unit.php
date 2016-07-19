@@ -1,7 +1,8 @@
 <?php
     namespace RPG;
 
-    interface Unit{
+    interface Unit
+    {
 
         /**
          * @param \Unit $opponent

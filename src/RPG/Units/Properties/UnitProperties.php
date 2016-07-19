@@ -77,7 +77,7 @@
                 $evadeMessage = $this->armor->getEvadeAttack()==true ? "y evade ataque" : "";
                 show("{$this->name} tiene armadura '{$armor->getArmorName()}' {$evadeMessage}");
             }
-        } 
+        }
 
         /**
          *
@@ -94,6 +94,6 @@
         public function getHp()
         {
             return $this->hp;
-        } 
+        }
 
     }

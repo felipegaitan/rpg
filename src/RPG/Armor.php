@@ -1,8 +1,9 @@
 <?php
     namespace RPG;
 
-    interface Armor{
+    interface Armor
+    {
 
-        public function absorbDamage($damage); 
-        
+        public function absorbDamage($damage);
+
     }

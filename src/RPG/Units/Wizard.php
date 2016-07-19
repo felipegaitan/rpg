@@ -4,14 +4,16 @@
     use RPG\Units\Properties\UnitProperties;
     use RPG\Unit;
 
-    class Wizard extends UnitProperties implements Unit{
+    class Wizard extends UnitProperties implements Unit
+    {
 
-        protected $damage = 10;
         protected $armor;
+        protected $damage = 10;
 
-        public function attack(Unit $opponent){
-            show( "{$this->name} lanza un hechizo a {$opponent->getName()}" );
-            $opponent->takeDamage( $this->damage );
+        public function attack(Unit $opponent)
+        {
+            show("{$this->name} lanza un hechizo a {$opponent->getName()}");
+            $opponent->takeDamage($this->damage);
         }
 
     }

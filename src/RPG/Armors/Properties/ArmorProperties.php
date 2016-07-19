@@ -1,16 +1,19 @@
 <?php
     namespace RPG\Armors\Properties;
 
-    abstract class ArmorProperties{
+    abstract class ArmorProperties
+    {
 
         protected $armorName   = "";
         protected $evadeAttack = false;
 
-        public function getArmorName(){
+        public function getArmorName()
+        {
             return $this->armorName;
         }
 
-        public function getEvadeAttack(){
+        public function getEvadeAttack()
+        {
             return $this->evadeAttack;
         }
     }
