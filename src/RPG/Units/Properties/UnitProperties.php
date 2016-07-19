@@ -2,6 +2,7 @@
     namespace RPG\Units\Properties;
 
     use RPG\Armor;
+    use RPG\Weapon;
 
     abstract class UnitProperties
     {
@@ -10,16 +11,21 @@
         protected $damage = 0;
         protected $hp     = 40;
         protected $name;
+        protected $weapon =null;
 
         /**
          * Unit constructor.
          *
-         * @param $name
+         * @param             $name
+         * @param \RPG\Armor  $armor
+         * @param \RPG\Weapon $weapon
          */
-        public function __construct($name,Armor $armor = null)
+        public function __construct($name,Armor $armor = null,Weapon $weapon)
         {
             $this->setArmor($armor);
             $this->name = $name;
+            $this->weapon = $weapon;
+            $this->armor = $armor;
         }
 
         /**
