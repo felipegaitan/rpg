@@ -2,15 +2,15 @@
     namespace RPG\Armors;
 
     use RPG\Armor;
-    use RPG\Armors\Properties\ArmorProperties;
 
-    class EvadeArmor extends ArmorProperties implements Armor
+    class EvadeArmor extends Armor
     {
 
         protected $armorName = "Evade Armor";
 
         public function absorbDamage($damage)
         {
+            $this->evadeAttack = false;
             if (rand(0,1)) {
                 $damage            = 0;
                 $this->evadeAttack = true;

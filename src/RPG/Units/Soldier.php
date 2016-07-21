@@ -1,19 +1,15 @@
 <?php
     namespace RPG\Units;
 
-    use RPG\Units\Properties\UnitProperties;
     use RPG\Unit;
+    use RPG\Weapons\Swords\Sword;
 
-    class Soldier extends UnitProperties implements Unit
+    class Soldier extends Unit
     {
-
-        protected $armor;
-        protected $damage = 40;
-
-        public function attack(Unit $opponent)
+        
+        public function __construct($name,Sword $weapon)
         {
-            show("{$this->name} ataca con espada a {$opponent->getName()}");
-            $opponent->takeDamage($this->damage);
+            parent::__construct($name,$weapon);
         }
 
     }

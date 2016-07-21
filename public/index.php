@@ -7,11 +7,15 @@
     use RPG\Armors\CursedArmor;
     use RPG\Armors\GoldArmor;
     use RPG\Armors\EvadeArmor;
+    use RPG\Weapons\Swords\BasicSword;
+    use RPG\Weapons\Swords\LongSword;
+    use RPG\Weapons\Bows\BasicBow;
+    use RPG\Weapons\Bows\CrossBow;
 
-    $felipe = new Soldier('Felipe');
-    $yassel = new Archer('Yassel');
+    $felipe = new Soldier('Felipe',new LongSword);
+    $yassel = new Archer('Yassel',new CrossBow);
+    $felipe->setArmor(new EvadeArmor());
     $yassel->attack($felipe);
-    $felipe->setArmor(new BronzeArmor());
     $yassel->attack($felipe);
     $felipe->setArmor(new GoldArmor());
     //$felipe->setArmor( new CursedArmor() );

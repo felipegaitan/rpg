@@ -2,9 +2,8 @@
     namespace RPG\Armors;
 
     use RPG\Armor;
-    use RPG\Armors\Properties\ArmorProperties;
 
-    class GoldArmor extends ArmorProperties implements Armor
+    class GoldArmor extends Armor
     {
 
         protected $armorName = "Gold Armor";
