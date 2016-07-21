@@ -11,7 +11,8 @@
     }
   ] ,
   "require" : {
-    "php" : ">=5.5.9"
+    "php" : ">=5.5.9",
+    "larapack/dd": "^1.0"
   } ,
   "autoload" : {
     "classmap" : [
