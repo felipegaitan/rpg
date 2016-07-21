@@ -2,15 +2,12 @@
     namespace RPG\Weapons\Bows;
 
     use RPG\Unit;
+    use RPG\Weapon;
 
-    class CrossBow extends Bow
+    class CrossBow extends Weapon
     {
 
         protected $damage = 40;
-
-        public function getDescription(Unit $atacker , Unit $opponet)
-        {
-            return "{$atacker->getName()} dispara una ráfaga de flechas a {$opponet->getName()}" ;
-        }
+        protected $description = ':unit dispara una ráfaga de flechas a :opponent';
 
     }

@@ -1,7 +1,11 @@
 <?php
     namespace RPG;
 
-    abstract class Unit
+    use RPG\Armor;
+    use RPG\Attack;
+    use RPG\Weapon;
+
+    class Unit
     {
 
         protected $armor;
@@ -14,28 +18,20 @@
          * Unit constructor.
          *
          * @param             $name
-         * @param \RPG\Weapon $weapon
+         * @param Weapon      $weapon
          */
         public function __construct($name,Weapon $weapon)
         {
-            $this->name = $name;
-            $this->setWeapon($weapon);
-        }
-
-        /**
-         * @param \RPG\Weapon $weapon
-         */
-        public function setWeapon(Weapon $weapon)
-        {
+            $this->name   = $name;
             $this->weapon = $weapon;
         }
 
         /**
-         * @param \RPG\Armor $armor
+         * @param Weapon $weapon
          */
-        public function setArmor(Armor $armor)
+        public function setWeapon(Weapon $weapon)
         {
-            $this->armor = $armor;
+            $this->weapon = $weapon;
         }
 
         /**
@@ -67,16 +63,17 @@
          */
         public function attack(Unit $opponent)
         {
-            show($this->weapon->getDescription($this,$opponent));
-            $opponent->takeDamage($this->weapon->getDamage());
+            $attack = $this->weapon->createAttack();
+            show($attack->getDescription($this,$opponent));
+            $opponent->takeDamage($attack);
         }
 
         /**
          * @param $damage
          */
-        public function takeDamage($damage)
+        public function takeDamage(Attack $attack)
         {
-            $this->hp = ($this->hp-$this->absorbDamage($damage));
+            $this->hp = ($this->hp-$this->absorbDamage($attack));
             if ($this->hp<0) {
                 $this->hp = 0;
             }
@@ -87,14 +84,17 @@
         }
 
         /**
-         * @param $damage
+         * @param Attack $attack
          *
          * @return mixed
+         * @internal param $damage
+         *
          */
-        public function absorbDamage($damage)
+        public function absorbDamage(Attack $attack)
         {
+            $damage = $attack->getDamage();
             if ($this->armor) {
-                $damage = $this->armor->absorbDamage($damage);
+                $damage = $this->armor->absorbDamage($attack);
                 $this->mensajeAtaque($this->armor);
             }
 
@@ -102,7 +102,7 @@
         }
 
         /**
-         * @param \RPG\Armor $armor
+         * @param Armor $armor
          */
         public function mensajeAtaque(Armor $armor)
         {
@@ -119,5 +119,13 @@
         {
             show("{$this->name} muere");
             exit();
+        }
+
+        /**
+         * @param Armor $armor
+         */
+        public function setArmor(Armor $armor)
+        {
+            $this->armor = $armor;
         }
     }

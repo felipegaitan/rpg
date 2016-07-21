@@ -2,14 +2,15 @@
     namespace RPG\Armors;
 
     use RPG\Armor;
+    use RPG\Attack;
 
     class GoldArmor extends Armor
     {
 
         protected $armorName = "Gold Armor";
 
-        public function absorbDamage($damage)
+        public function absorbDamage(Attack $attack)
         {
-            return $damage/4;
+            return $attack->getDamage()/4;
         }
     }

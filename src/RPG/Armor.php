@@ -1,6 +1,8 @@
 <?php
     namespace RPG;
 
+    use RPG\Attack;
+
     abstract class Armor
     {
 
@@ -16,4 +18,7 @@
         {
             return $this->evadeAttack;
         }
+
+        abstract public function absorbDamage(Attack $attack);
+
     }

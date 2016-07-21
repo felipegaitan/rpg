@@ -2,15 +2,12 @@
     namespace RPG\Weapons\Swords;
 
     use RPG\Unit;
+    use RPG\Weapon;
 
-    class BasicSword extends Sword
+    class BasicSword extends Weapon
     {
 
         protected $damage = 20;
-
-        public function getDescription(Unit $atacker , Unit $opponet)
-        {
-            return "{$atacker->getName()} ataca con una espada a {$opponet->getName()}" ;
-        }
-
+        protected $description = ':unit ataca con una espada a :opponent';
+        
     }

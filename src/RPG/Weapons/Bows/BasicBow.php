@@ -2,15 +2,12 @@
     namespace RPG\Weapons\Bows;
 
     use RPG\Unit;
+    use RPG\Weapon;
 
-    class BasicBow extends Bow
+    class BasicBow extends Weapon
     {
 
         protected $damage = 20;
-
-        public function getDescription(Unit $atacker,Unit $opponet)
-        {
-            return "{$atacker->getName()} dispara una flecha a {$opponet->getName()}";
-        }
+        protected $description = ':unit dispara una flecha a :opponent';
 
     }

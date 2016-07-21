@@ -4,13 +4,13 @@
     abstract class Weapon
     {
 
-        protected $damage = 0;
+        protected $damage      = 0;
+        protected $description = ":unit ataca a :oponente";
+        protected $magical     = false;
 
-        public function getDamage()
+        public function createAttack()
         {
-            return $this->damage;
+            return new Attack($this->damage,$this->magical,$this->description);
         }
-
-        abstract public function getDescription(Unit $attacker,Unit $opponent);
 
     }
